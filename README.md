@@ -17,12 +17,12 @@ The utilities support the main tools and enhance their functionality. The Model 
 The setup configuration specifies entry points for the tree main tool scripts, enabling users to execute data preparation, model training, and evaluation directly from the command line. This facilitates streamlined workflows and simplifies the execution of common tasks. The toolkit leverages YAML configuration files to allow users to pilot and manage all these scripts and tools efficiently. These configuration files store settings for data paths, hyper-parameters, training schedules, model configurations, and other parameters. The configuration system parses these files, ensuring that the entire pipeline - from data preparation to model evaluation adheres to the specified settings.
 
 ```
-usage: 	fst-preparation [-h] [--configfile CONFIGFILE]
-		fst-training [-h] [--configfile CONFIGFILE]
-		fst-validation [-h] [--configfile CONFIGFILE]
+usage: 	preparation [-h] [--configfile CONFIGFILE]
+	training [-h] [--configfile CONFIGFILE]
+	validation [-h] [--configfile CONFIGFILE]
 
 optional arguments:
-		-h, --help 					Show this help message and exit
+		-h, --help 			Show this help message and exit
 		--configfile CONFIGFILE 	YAML configuration file path
 ```
 
