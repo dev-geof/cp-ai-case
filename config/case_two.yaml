@@ -1,0 +1,84 @@
+general_configuration: 
+    output_directory: "./results_case_two_vanilla" 
+    analysis_title: "Clue Points - Case 2" 
+    analysis_type: "NLP"
+    raw_datasets:
+        - "stack_overflow_questions_train.csv"
+        - "stack_overflow_questions_valid.csv"
+    curated_datasets:  
+        - "./results_case_two/stack_overflow_questions_train_curated.csv"
+        - "./results_case_two/stack_overflow_questions_valid_curated.csv"
+
+preparation_configuration: 
+    data_mining: True
+    correlation_matrix: False
+    preprocessing_regular:
+        enabled: False
+        options:
+            num_features:
+            to_be_dropped: 
+            ordinal_features: 
+            other_categorical_features:
+    preprocessing_nlp:
+        enabled: True
+        options:
+            text_features:
+                - "Title"
+                - "Body"
+            tags_features:
+                - "Tags"
+            temporal_features:
+                - "CreationDate"
+            to_be_dropped: 
+                - "Id"
+            ordinal_features: 
+                - feature: "Y"
+                  order: ["LQ_CLOSE", "LQ_EDIT", "HQ"]
+
+training_configuration:
+    train_dataset: "stack_overflow_questions_train_curated.csv"
+    val_dataset: "stack_overflow_questions_valid_curated.csv" 
+    nepochs: 500 
+    learning_rate: 0.0001 
+    optimizer: "AdamW"
+    batch_size: 10 
+    buffer_size: 10000
+    resampling: False
+    verbose: 1 
+    title_feature: "Title"
+    body_feature: "Body"
+    tags_feature: "Tags"
+    num_features:
+        - "Year"
+        - "Hour_of_day_sin"
+        - "Hour_of_day_cos"
+        - "Day_of_week_sin"
+        - "Day_of_week_cos"
+        - "Month_sin"
+        - "Month_cos"
+    target_feature: "Y"
+
+
+model_parameters: 
+    model_name: "my_model" 
+    nDlayers: 1 
+    vdropout: 0.7 
+    nodes_per_layer: 16 
+    act_fn: "relu" 
+    embedding: True 
+    embedding_dim: 32 
+    mha: True
+    mha_nheads: 5
+
+validation_configuration: 
+    compute_shapley: False 
+    plot_confusion_matrix: True 
+    plot_class_metrics: True
+    plot_output_probabilities: True
+    plot_log_probability_ratios_and_roc: True
+    output_classes:
+        - "LQ CLOSE"
+        - "LQ EDIT"
+        - "HQ"
+
+    
