@@ -1,6 +1,6 @@
 # cp-ai-case
 
-Code repository designed for solving CP AI case. 
+Code repository for solving CP AI case. 
 
 ## Software Implementation
 
