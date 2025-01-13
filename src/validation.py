@@ -45,9 +45,6 @@ def inference(train_dataset, val_dataset, outputdir, batch_size):
         tuple: A tuple containing:
             - train_predictions (numpy.ndarray): The predictions for the training dataset.
             - val_predictions (numpy.ndarray): The predictions for the validation dataset.
-
-    Notes:
-        - Ensure the `outputdir` contains a valid checkpoint directory at `outputdir/training/checkpoints/`.
     """
 
     # Load best model from checkpoint
@@ -99,7 +96,6 @@ def performance_assessement(
         - Class-specific metrics include precision, recall, and F1-score for each class.
         - Output probability plots analyze the model's confidence distribution for predictions.
         - LLR and ROC plots provide insight into the model's ability to distinguish between classes.
-        - Ensure the `outputdir` exists, as plots will be saved in subdirectories under this location.
     """
 
     if confusion_matrix == True:
