@@ -137,7 +137,7 @@ def compile_and_fit(
 
 def training(configfile):
     """
-    Train a DNN model for classification based on the configuration.
+    Train ML model for classification based on the configuration.
 
     Parameters:""
     - configfile (str): Path to the YAML configuration file.
