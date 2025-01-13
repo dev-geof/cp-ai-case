@@ -202,6 +202,29 @@ def build_DNN(
     embedding_dim: int,
 ) -> tf.keras.Model:
 
+    """
+    Builds a Deep Neural Network (DNN) model with optional embedding layers.
+
+    Args:
+        nfeatures (int): Number of input features.
+        nDlayers (int): Number of dense layers to include in the model.
+        vdropout (float): Dropout rate to apply for regularization.
+        nodes_per_layer (int): Number of nodes in each dense layer.
+        act_fn (str): Activation function to use in the dense layers (e.g., "relu", "tanh").
+        nclass (int): Number of output classes for classification (size of the output layer).
+        embedding (bool): Whether to include an embedding layer in the model.
+        embedding_dim (int): Dimensionality of the embedding space (used if `embedding` is True).
+
+    Returns:
+        tf.keras.Model: A compiled Keras model object representing the DNN.
+
+    Notes:
+        - If `embedding` is set to `True`, a custom embedding layer is added to the input tensor.
+        - Each dense layer is followed by a regularization block to apply dropout.
+        - The final output layer uses a softmax activation for classification problems.
+        - The `regulation_block` function is assumed to handle dropout and optional spatial dropout.
+    """
+
     # Instantiate a Keras input tensors
     input_tensor = tf.keras.Input(shape=(nfeatures,))
 
