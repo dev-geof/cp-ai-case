@@ -175,18 +175,18 @@ def regulation_block(input_layer, vdropout, spatial_dropout=False):
     tf.Tensor
         A tensor resulting from the application of batch normalization followed by dropout on the input tensor.
     """
-    # Apply Batch Normalization
-    h = tf.keras.layers.BatchNormalization()(input_layer)
-
     # Apply Spatial Dropout for embeddings (recommended for text embeddings)
     if spatial_dropout:
         h = tf.keras.layers.SpatialDropout1D(vdropout)(
-            h
+            input_layer
         )  # Use for sequence-based inputs (e.g., text)
 
     # Apply regular Dropout
     else:
-        h = tf.keras.layers.Dropout(vdropout)(h)
+        h = tf.keras.layers.Dropout(vdropout)(input_layer)
+
+    # Apply Batch Normalization
+    h = tf.keras.layers.BatchNormalization()(h)
 
     return h
 
