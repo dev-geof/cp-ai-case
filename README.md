@@ -1,16 +1,14 @@
-# cp-ai-case
-
-Code repository for solving CP AI case. 
+# cross-attention-nlp
 
 ## Software Implementation
 
-The code provide a semi-modular python architecture designed to facilitate the implementation, the training and the evaluation of the ML model used for the CP AI case analyses. The core structure is organized into three main tools and several utilities. The code is is formated with black and more internal documentation is provide through doctstrings. 
+The code provide a semi-modular python architecture designed to facilitate the implementation, the training and the evaluation of the cross-attention based NLP model used for classification analyses. The core structure is organized into three main tools and several utilities. The code is formated with black and more internal documentation is provide through doctstrings. 
 
 ### Main Tools and Utilities
 
 The main tools provide essential functionalities for various stages of the ML pipeline. These stages include data preparation, model training, and evaluation. Data preparation tools ensure that raw data is cleaned, formatted, and features are engineered for optimal input into the model. Training tools encompass scripts and utilities for initiating and monitoring the training process, optimizing hyper-parameters. Evaluation tools offer methods for calculating performance metrics, validating models, and interpreting model outputs.
 
-The utilities support the main tools and enhance their functionality. The Model utilities define and manage the architecture and parameters of the ML models, including saving and loading models. Plotting utilities provide tools for visualizing, input features, training progress and model performance. Data and NLP utilities handle efficient loading, batching, and management of datasets. Configuration utilities manage settings and parameters through configuration files, ensuring consistent experiment setups. Finally, Callbacks offer functions for logging progress, early stopping, and checkpointing models during training, improving the training process’s efficiency and reliability.
+The utilities support the main tools and enhance their functionality. The Model utilities define and manage the architecture and parameters of the NLP models, including saving and loading models. Plotting utilities provide tools for visualizing, input features, training progress and model performance. Data and NLP utilities handle efficient loading, batching, and management of datasets. Configuration utilities manage settings and parameters through configuration files, ensuring consistent experiment setups. Finally, Callbacks offer functions for logging progress, early stopping, and checkpointing models during training, improving the training process’s efficiency and reliability.
 
 ### Entry Points
 
